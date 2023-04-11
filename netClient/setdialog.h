@@ -15,6 +15,10 @@ public:
     explicit setDialog(QWidget *parent = nullptr);
     ~setDialog();
     virtual void showEvent(QShowEvent *event);
+    QString getLocalIP();
+    QString getServerIP();
+    int getServerPort();
+
 private slots:
 
     void on_cancelButton_clicked();

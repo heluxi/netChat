@@ -8,6 +8,16 @@ Cell_Main::Cell_Main(QWidget *parent)
     ui->setupUi(this);
     this->setWindowFlag(Qt::FramelessWindowHint);
 
+    auto fcon=[&](){
+        auto ip=m_socket.localAddress().toString();
+        ui->textBrowser->append(ip+"连接成功");
+    };
+    connect(&m_socket,&QAbstractSocket::connected,this,fcon);
+    auto fdiscon=[&](){
+        auto ip=m_socket.localAddress().toString();
+        ui->textBrowser->append(ip+"连接失败");
+    };
+    connect(&m_socket,&QAbstractSocket::disconnected,this,fcon);
 }
 
 Cell_Main::~Cell_Main()
@@ -47,6 +57,13 @@ void Cell_Main::mouseMoveEvent(QMouseEvent *event)
     }
 }
 
+void Cell_Main::tcpconnect()
+{
+    m_socket.bind();
+
+
+}
+
 
 void Cell_Main::on_closeButton_clicked()
 {
@@ -68,7 +85,7 @@ void Cell_Main::on_maxButton_clicked()
 
 void Cell_Main::on_setButton_clicked()
 {
-    setDialog dlg;
+
     dlg.exec();
 }
 

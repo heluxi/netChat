@@ -231,7 +231,7 @@
          <string notr="true">color: rgb(255, 86, 80);</string>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string>咖啡就是yyds</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>

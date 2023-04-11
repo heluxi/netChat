@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include<QMouseEvent>
+#include<QTcpSocket>
 #include"setdialog.h"
 
 QT_BEGIN_NAMESPACE
@@ -21,6 +22,7 @@ public:
     virtual void mouseReleaseEvent(QMouseEvent *event);
     virtual void mouseMoveEvent(QMouseEvent *event);
 
+    void tcpconnect();
 private slots:
     void on_closeButton_clicked();
 
@@ -35,5 +37,7 @@ private:
     bool m_isPressed=false;
     QPoint m_winRect;
     QPoint press;
+    setDialog dlg;
+    QTcpSocket m_socket;
 };
 #endif // CELL_MAIN_H
