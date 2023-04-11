@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>最小化.svg</file>
+        <file>最大化.svg</file>
+        <file>设置.svg</file>
+        <file>关闭.svg</file>
+    </qresource>
+</RCC>
