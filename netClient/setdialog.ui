@@ -105,7 +105,7 @@
          </size>
         </property>
         <property name="text">
-         <string>确定</string>
+         <string>连接</string>
         </property>
        </widget>
       </item>

@@ -59,7 +59,13 @@ void Cell_Main::mouseMoveEvent(QMouseEvent *event)
 
 void Cell_Main::tcpconnect()
 {
-    m_socket.bind();
+    auto local_ip=dlg.getLocalIP();
+    auto server_ip=dlg.getServerIP();
+    auto server_port=dlg.getServerPort();
+    m_socket.close();
+    m_socket.bind(QHostAddress(local_ip));
+    m_socket.connectToHost(server_ip,server_port);
+
 
 
 }
@@ -86,6 +92,13 @@ void Cell_Main::on_maxButton_clicked()
 void Cell_Main::on_setButton_clicked()
 {
 
-    dlg.exec();
+    int rec=dlg.exec();
+    if(rec)
+    {
+        tcpconnect();
+        qDebug()<<"local ip"<<dlg.getLocalIP();
+        qDebug()<<"server ip"<<dlg.getServerIP();
+        qDebug()<<"server port"<<dlg.getServerPort();
+    }
 }
 
